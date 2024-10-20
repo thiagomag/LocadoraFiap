@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -19,9 +20,14 @@ public class Reserva {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-    private String dataInicio;
-    private String dataFim;
+    private LocalDate dataInicio;
+    private LocalDate dataFim;
+    private LocalDate dataRetirada;
+    private LocalDate dataDevolucao;
+    private BigDecimal valorDiaria;
     private BigDecimal valorTotal;
+    private Boolean reservaAtiva;
+    private Boolean veiculoRetirado;
 
     @ManyToOne
     @JoinColumn(name = "veiculo_id")

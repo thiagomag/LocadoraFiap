@@ -1,5 +1,6 @@
 package br.com.postechfiap.locadorafiap.entities;
 
+import br.com.postechfiap.locadorafiap.enuns.CategoriaVeiculosEnum;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -27,7 +28,7 @@ public class Veiculo {
     private String chassi;
     private String renavam;
     private String combustivel;
-    private String categoria;
+    private CategoriaVeiculosEnum categoria;
     private String valorDiaria;
     private Long quilometragem;
     @Builder.Default
