@@ -1,6 +1,7 @@
 package br.com.postechfiap.locadorafiap.dto;
 
 import br.com.postechfiap.locadorafiap.entities.Veiculo;
+import br.com.postechfiap.locadorafiap.enuns.CategoriaVeiculosEnum;
 import lombok.*;
 
 @Getter
@@ -21,7 +22,7 @@ public class VeiculoDto {
     private String chassi;
     private String renavam;
     private String combustivel;
-    private String categoria;
+    private CategoriaVeiculosEnum categoria;
     private String valorDiaria;
     private Long quilometragem;
     private Boolean disponivel;

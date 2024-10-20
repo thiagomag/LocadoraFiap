@@ -1,9 +1,11 @@
 package br.com.postechfiap.locadorafiap.dto;
 
 import br.com.postechfiap.locadorafiap.entities.Reserva;
+import br.com.postechfiap.locadorafiap.enuns.CategoriaVeiculosEnum;
 import lombok.*;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
 
 @Getter
@@ -16,9 +18,15 @@ import java.util.List;
 public class ReservaDto {
 
     private Long id;
-    private String dataInicio;
-    private String dataFim;
-    private BigDecimal valorTotal;
+    private LocalDate dataInicio;
+    private LocalDate dataFim;
+    private BigDecimal valorDiaria;
+    private CategoriaVeiculosEnum categoriaVeiculo;
+    private Long ClienteId;
+    @Builder.Default
+    private Boolean reservaAtiva = false;
+    @Builder.Default
+    private Boolean reservaRetirada = false;
     private VeiculoDto veiculo;
 
     public static ReservaDto from(Reserva reserva) {
@@ -26,8 +34,8 @@ public class ReservaDto {
                 .id(reserva.getId())
                 .dataInicio(reserva.getDataInicio())
                 .dataFim(reserva.getDataFim())
-                .valorTotal(reserva.getValorTotal())
                 .veiculo(VeiculoDto.from(reserva.getVeiculo()))
+                .valorDiaria(reserva.getValorDiaria())
                 .build();
     }
 
@@ -43,9 +51,14 @@ public class ReservaDto {
                 .id(reservaDto.getId())
                 .dataInicio(reservaDto.getDataInicio())
                 .dataFim(reservaDto.getDataFim())
-                .valorTotal(reservaDto.getValorTotal())
+                .valorTotal(buildValorTotal(reservaDto))
                 .veiculo(VeiculoDto.to(reservaDto.getVeiculo()))
                 .build();
+    }
+
+    private static BigDecimal buildValorTotal(ReservaDto reservaDto) {
+        final var dias = reservaDto.getDataFim().getDayOfYear() - reservaDto.getDataInicio().getDayOfYear();
+        return reservaDto.getValorDiaria().multiply(BigDecimal.valueOf(dias));
     }
 
     public static List<Reserva> to(List<ReservaDto> reservaDto) {
