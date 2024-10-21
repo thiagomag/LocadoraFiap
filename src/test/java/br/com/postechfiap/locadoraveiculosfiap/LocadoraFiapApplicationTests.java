@@ -1,4 +1,4 @@
-package br.com.postechfiap.locadorafiap;
+package br.com.postechfiap.locadoraveiculosfiap;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

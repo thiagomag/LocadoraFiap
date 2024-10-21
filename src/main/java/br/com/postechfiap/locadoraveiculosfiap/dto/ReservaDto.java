@@ -22,7 +22,7 @@ public class ReservaDto {
     private LocalDate dataFim;
     private BigDecimal valorDiaria;
     private CategoriaVeiculosEnum categoriaVeiculo;
-    private Long ClienteId;
+    private Long clienteId;
     @Builder.Default
     private Boolean reservaAtiva = false;
     @Builder.Default
@@ -36,6 +36,10 @@ public class ReservaDto {
                 .dataFim(reserva.getDataFim())
                 .veiculo(VeiculoDto.from(reserva.getVeiculo()))
                 .valorDiaria(reserva.getValorDiaria())
+                .categoriaVeiculo(reserva.getVeiculo().getCategoria())
+                .clienteId(reserva.getCliente().getId())
+                .reservaAtiva(reserva.getReservaAtiva())
+                .reservaRetirada(reserva.getVeiculoRetirado())
                 .build();
     }
 
@@ -53,6 +57,9 @@ public class ReservaDto {
                 .dataFim(reservaDto.getDataFim())
                 .valorTotal(buildValorTotal(reservaDto))
                 .veiculo(VeiculoDto.to(reservaDto.getVeiculo()))
+                .valorDiaria(reservaDto.getValorDiaria())
+                .reservaAtiva(reservaDto.getReservaAtiva())
+                .veiculoRetirado(reservaDto.getReservaRetirada())
                 .build();
     }
 

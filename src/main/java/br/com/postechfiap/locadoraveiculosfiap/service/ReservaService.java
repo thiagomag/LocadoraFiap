@@ -54,12 +54,18 @@ public class ReservaService {
     }
 
     public ReservaDto saveReserva(ReservaDto reservaDto) {
+        verificarCliente(reservaDto.getClienteId());
         final var veiculo = veiculoRepository.findVeiculoByCategoriaAndDisponivelIsTrue(reservaDto.getCategoriaVeiculo())
                 .stream().findFirst()
                 .orElseThrow(() -> new VeiculoNotFoundException("Veiculo não encontrado na categoria: " + reservaDto.getCategoriaVeiculo().getDescricao()));
         final var reserva = ReservaDto.to(reservaDto);
         reserva.setVeiculo(veiculo);
         return ReservaDto.from(reservaRepository.save(reserva));
+    }
+
+    private void verificarCliente(Long clienteId) {
+        clienteRepository.findById(clienteId)
+                .orElseThrow(() -> new ClienteNotFoundException(clienteId));
     }
 
     public ReservaDto updateReserva(Long reservaId, ReservaDto reservaDto) {

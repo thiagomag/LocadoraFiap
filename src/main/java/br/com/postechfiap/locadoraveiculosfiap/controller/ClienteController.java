@@ -16,7 +16,7 @@ public class ClienteController {
     private final ClienteService clienteService;
 
     @GetMapping
-    public ResponseEntity<List<ClienteDto>> getTudosClientes() {
+    public ResponseEntity<List<ClienteDto>> getTodosClientes() {
         return ResponseEntity.ok(clienteService.getTodosClientes());
     }
 
