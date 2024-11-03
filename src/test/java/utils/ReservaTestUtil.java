@@ -1,8 +1,8 @@
 package utils;
 
-import br.com.postechfiap.locadoraveiculosfiap.dto.ReservaDto;
-import br.com.postechfiap.locadoraveiculosfiap.entities.Reserva;
-import br.com.postechfiap.locadoraveiculosfiap.enuns.CategoriaVeiculosEnum;
+import br.com.postechfiap.locadoraveiculosfiap.application.dto.ReservaDto;
+import br.com.postechfiap.locadoraveiculosfiap.domain.model.Reserva;
+import br.com.postechfiap.locadoraveiculosfiap.shared.enuns.CategoriaVeiculosEnum;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

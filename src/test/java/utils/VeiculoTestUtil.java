@@ -1,8 +1,8 @@
 package utils;
 
-import br.com.postechfiap.locadoraveiculosfiap.dto.VeiculoDto;
-import br.com.postechfiap.locadoraveiculosfiap.entities.Veiculo;
-import br.com.postechfiap.locadoraveiculosfiap.enuns.CategoriaVeiculosEnum;
+import br.com.postechfiap.locadoraveiculosfiap.application.dto.VeiculoDto;
+import br.com.postechfiap.locadoraveiculosfiap.domain.model.Veiculo;
+import br.com.postechfiap.locadoraveiculosfiap.shared.enuns.CategoriaVeiculosEnum;
 
 public class VeiculoTestUtil {
 
