@@ -1,7 +1,7 @@
 package utils;
 
-import br.com.postechfiap.locadoraveiculosfiap.dto.ClienteDto;
-import br.com.postechfiap.locadoraveiculosfiap.entities.Cliente;
+import br.com.postechfiap.locadoraveiculosfiap.application.dto.ClienteDto;
+import br.com.postechfiap.locadoraveiculosfiap.domain.model.Cliente;
 
 import java.util.Collections;
 

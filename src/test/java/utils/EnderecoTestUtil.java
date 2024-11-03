@@ -1,7 +1,7 @@
 package utils;
 
-import br.com.postechfiap.locadoraveiculosfiap.dto.EnderecoDto;
-import br.com.postechfiap.locadoraveiculosfiap.entities.Endereco;
+import br.com.postechfiap.locadoraveiculosfiap.application.dto.EnderecoDto;
+import br.com.postechfiap.locadoraveiculosfiap.domain.model.Endereco;
 
 public class EnderecoTestUtil {
 
