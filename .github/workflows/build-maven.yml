@@ -47,5 +47,3 @@ jobs:
           *.dump
           target/surefire-reports/*.dump
           target/failsafe-reports/*.dump
-
-        path: target/surefire-reports/
