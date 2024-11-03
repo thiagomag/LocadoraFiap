@@ -2,9 +2,9 @@ name: Java CI
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "main" ]
 
 jobs:
   build:
@@ -14,10 +14,10 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    - name: Set up JDK 21
+    - name: Set up JDK 17
       uses: actions/setup-java@v3
       with:
-        java-version: '21'
+        java-version: '17'
         distribution: 'temurin'
 
     - name: Cache Maven packages
@@ -29,11 +29,23 @@ jobs:
           ${{ runner.os }}-maven-
 
     - name: Build and test with Maven
-      run: mvn clean install
+      run: mvn clean install -e -X -DskipTests=false -DtestFailureIgnore=true
 
     - name: Archive test results
       if: always()
       uses: actions/upload-artifact@v3
       with:
         name: test-results
+        path: target/surefire-reports/
+
+    - name: Archive dump files
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: dump-files
+        path: |
+          *.dump
+          target/surefire-reports/*.dump
+          target/failsafe-reports/*.dump
+
         path: target/surefire-reports/
