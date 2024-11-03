@@ -13,16 +13,18 @@ import java.util.List;
 @EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
-@Schema(name = "Endereco", description = "Representa um endereço", example = "{\n" +
-        "  \"id\": 123,\n" +
-        "  \"logradouro\": \"Rua das Flores\",\n" +
-        "  \"numero\": \"123\",\n" +
-        "  \"complemento\": \"Apto 123\",\n" +
-        "  \"bairro\": \"Jardim das Flores\",\n" +
-        "  \"cidade\": \"São Paulo\",\n" +
-        "  \"estado\": \"SP\",\n" +
-        "  \"cep\": \"12345-678\"\n" +
-        "}\n")
+@Schema(name = "Endereco", description = "Representa um endereço", example = """
+        {
+          "id": 123,
+          "logradouro": "Rua das Flores",
+          "numero": "123",
+          "complemento": "Apto 123",
+          "bairro": "Jardim das Flores",
+          "cidade": "São Paulo",
+          "estado": "SP",
+          "cep": "12345-678"
+        }
+        """)
 public class EnderecoDto {
 
     private Long id;

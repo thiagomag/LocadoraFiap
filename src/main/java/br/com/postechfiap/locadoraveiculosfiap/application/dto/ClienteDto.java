@@ -13,13 +13,15 @@ import java.util.List;
 @EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
-@Schema(name = "Cliente", description = "Representa um cliente", example = "{\n" +
-        "  \"codCliente\": 123,\n" +
-        "  \"cnh\": \"1234567890\",\n" +
-        "  \"email\": \"exemplo@dominio.com\",\n" +
-        "  \"nome\": \"João da Silva\",\n" +
-        "  \"cpf\": \"123.456.789-00\",\n" +
-        "}\n")
+@Schema(name = "Cliente", description = "Representa um cliente", example = """
+        {
+          "codCliente": 123,
+          "cnh": "1234567890",
+          "email": "exemplo@dominio.com",
+          "nome": "João da Silva",
+          "cpf": "123.456.789-00",
+        }
+        """)
 public class ClienteDto {
 
     private Long codCliente;

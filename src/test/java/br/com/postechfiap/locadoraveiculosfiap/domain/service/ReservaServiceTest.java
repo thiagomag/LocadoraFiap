@@ -1,8 +1,7 @@
 package br.com.postechfiap.locadoraveiculosfiap.domain.service;
 
-import br.com.postechfiap.locadoraveiculosfiap.domain.model.Reserva;
-import br.com.postechfiap.locadoraveiculosfiap.domain.service.ReservaService;
 import br.com.postechfiap.locadoraveiculosfiap.application.handler.exceptions.ReservaNotFoundException;
+import br.com.postechfiap.locadoraveiculosfiap.domain.model.Reserva;
 import br.com.postechfiap.locadoraveiculosfiap.domain.repository.ClienteRepository;
 import br.com.postechfiap.locadoraveiculosfiap.domain.repository.ReservaRepository;
 import br.com.postechfiap.locadoraveiculosfiap.domain.repository.VeiculoRepository;

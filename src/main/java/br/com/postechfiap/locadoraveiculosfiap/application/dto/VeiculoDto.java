@@ -12,21 +12,23 @@ import lombok.*;
 @EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
-@Schema(name = "Veiculo", description = "Representa um veículo", example = "{\n" +
-        "  \"id\": 123,\n" +
-        "  \"marca\": \"Fiat\",\n" +
-        "  \"modelo\": \"Uno\",\n" +
-        "  \"placa\": \"ABC-1234\",\n" +
-        "  \"cor\": \"Branco\",\n" +
-        "  \"ano\": \"2021\",\n" +
-        "  \"chassi\": \"1234567890\",\n" +
-        "  \"renavam\": \"1234567890\",\n" +
-        "  \"combustivel\": \"Gasolina\",\n" +
-        "  \"categoria\": \"SEDAN\",\n" +
-        "  \"valorDiaria\": 100.00,\n" +
-        "  \"quilometragem\": 1000,\n" +
-        "  \"disponivel\": true,\n" +
-        "}\n")
+@Schema(name = "Veiculo", description = "Representa um veículo", example = """
+        {
+          "id": 123,
+          "marca": "Fiat",
+          "modelo": "Uno",
+          "placa": "ABC-1234",
+          "cor": "Branco",
+          "ano": "2021",
+          "chassi": "1234567890",
+          "renavam": "1234567890",
+          "combustivel": "Gasolina",
+          "categoria": "SEDAN",
+          "valorDiaria": 100.00,
+          "quilometragem": 1000,
+          "disponivel": true,
+        }
+        """)
 public class VeiculoDto {
 
     private Long id;

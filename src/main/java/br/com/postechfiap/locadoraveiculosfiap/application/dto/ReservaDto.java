@@ -16,16 +16,18 @@ import java.util.List;
 @EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
-@Schema(name = "Reserva", description = "Representa uma reserva", example = "{\n" +
-        "  \"id\": 123,\n" +
-        "  \"dataInicio\": \"2021-12-01\",\n" +
-        "  \"dataFim\": \"2021-12-10\",\n" +
-        "  \"valorDiaria\": 100.00,\n" +
-        "  \"categoriaVeiculo\": \"SEDAN\",\n" +
-        "  \"clienteId\": 123,\n" +
-        "  \"reservaAtiva\": true,\n" +
-        "  \"reservaRetirada\": false\n" +
-        "}\n")
+@Schema(name = "Reserva", description = "Representa uma reserva", example = """
+        {
+          "id": 123,
+          "dataInicio": "2021-12-01",
+          "dataFim": "2021-12-10",
+          "valorDiaria": 100.00,
+          "categoriaVeiculo": "SEDAN",
+          "clienteId": 123,
+          "reservaAtiva": true,
+          "reservaRetirada": false
+        }
+        """)
 public class ReservaDto {
 
     private Long id;
