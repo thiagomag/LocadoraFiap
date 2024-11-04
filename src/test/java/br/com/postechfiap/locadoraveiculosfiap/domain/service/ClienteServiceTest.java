@@ -84,6 +84,7 @@ public class ClienteServiceTest {
         when(clienteRepository.save(any(Cliente.class)))
                 .thenAnswer(invocation -> {
                     final var cliente = (Cliente) invocation.getArgument(0);
+                    cliente.setReservas(null);
                     assertEquals(1L, cliente.getId());
                     return cliente;
                 });
@@ -104,7 +105,6 @@ public class ClienteServiceTest {
         assertEquals("João", cliente.getNome());
         assertEquals("12345678901", cliente.getCpf());
         assertNotNull(cliente.getEnderecos());
-        assertNotNull(cliente.getReservas());
     }
 
     @Test

@@ -1,6 +1,7 @@
 package br.com.postechfiap.locadoraveiculosfiap.domain.service;
 
 import br.com.postechfiap.locadoraveiculosfiap.application.dto.ReservaDto;
+import br.com.postechfiap.locadoraveiculosfiap.domain.model.Cliente;
 import br.com.postechfiap.locadoraveiculosfiap.domain.model.Reserva;
 import br.com.postechfiap.locadoraveiculosfiap.domain.model.Veiculo;
 import br.com.postechfiap.locadoraveiculosfiap.application.handler.exceptions.ClienteNotFoundException;
@@ -54,17 +55,18 @@ public class ReservaService {
     }
 
     public ReservaDto saveReserva(ReservaDto reservaDto) {
-        verificarCliente(reservaDto.getClienteId());
+        final var cliente = verificarCliente(reservaDto.getClienteId());
         final var veiculo = veiculoRepository.findVeiculoByCategoriaAndDisponivelIsTrue(reservaDto.getCategoriaVeiculo())
                 .stream().findFirst()
                 .orElseThrow(() -> new VeiculoNotFoundException("Veiculo não encontrado na categoria: " + reservaDto.getCategoriaVeiculo().getDescricao()));
         final var reserva = ReservaDto.to(reservaDto);
         reserva.setVeiculo(veiculo);
+        reserva.setCliente(cliente);
         return ReservaDto.from(reservaRepository.save(reserva));
     }
 
-    private void verificarCliente(Long clienteId) {
-        clienteRepository.findById(clienteId)
+    private Cliente verificarCliente(Long clienteId) {
+        return clienteRepository.findById(clienteId)
                 .orElseThrow(() -> new ClienteNotFoundException(clienteId));
     }
 
