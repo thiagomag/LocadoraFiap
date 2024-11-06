@@ -18,7 +18,7 @@ public class SwaggerConfig {
                         .version("v1.0")
                         .description("API para gerenciamento de uma locadora de veículos")
                         .contact(new Contact()
-                                .name("FIAP Grupo 5"))
+                                .name("FIAP Grupo 9"))
                         .license(new License()
                                 .name("Apache 2.0")
                                 .url("http://springdoc.org")));
